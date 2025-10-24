@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyarko Kingsley - Civil Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid white;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .hero-text .tagline {
+            font-style: italic;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Sections */
+        section {
+            background: white;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            border-bottom: 3px solid #2a5298;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #2a5298;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Research Interests */
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .interest-tag {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Projects */
+        .project {
+            border-left: 4px solid #2a5298;
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .project h3 {
+            margin-top: 0;
+        }
+
+        .project-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-category h4 {
+            color: #2a5298;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .skill-category li:before {
+            content: "▸ ";
+            color: #2a5298;
+            font-weight: bold;
+        }
+
+        /* Blog Section */
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .blog-card h3 {
+            color: #1e3c72;
+            margin-top: 0;
+        }
+
+        .blog-meta {
+            color: #666;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-excerpt {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            color: #2a5298;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        /* Awards */
+        .awards-list {
+            list-style: none;
+        }
+
+        .awards-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .awards-list li:last-child {
+            border-bottom: none;
+        }
+
+        .award-date {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Contact */
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item a {
+            color: #2a5298;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <img src="profile-pic.jpg" alt="Nyarko Kingsley" class="profile-pic" id="profilePic">
+            <div class="hero-text">
+                <h1>Nyarko Kingsley</h1>
+                <p>Civil Engineering Student | Structural Engineer | Researcher</p>
+                <p style="font-size: 1rem;">BSc. Civil Engineering, KNUST | CWA: 70.52 | GPA: 3.61/4.00</p>
+                <p class="tagline">"Striving to make meaningful contributions to infrastructure development and structural safety"</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am a highly motivated civil engineering student at Kwame Nkrumah University of Science and Technology (KNUST), expected to graduate in November 2025. I possess strong motivation and optimism in my pursuit of becoming an exceptional civil engineer. I actively seek opportunities to gain knowledge and skills, with the aim of making meaningful contributions to the development of Ghana and the global community.</p>
+            <p>My passion lies in structural engineering, with a particular focus on concrete durability, structural safety, and innovative material optimization. I am dedicated to advancing the field through research and practical application of structural dynamics and earthquake engineering principles.</p>
+        </section>
+
+        <!-- Research Interests -->
+        <section id="research">
+            <h2>Research Interests</h2>
+            <div class="interests">
+                <span class="interest-tag">Concrete Durability</span>
+                <span class="interest-tag">Structural Safety</span>
+                <span class="interest-tag">Material Optimization</span>
+                <span class="interest-tag">Structural Health Monitoring</span>
+                <span class="interest-tag">Reinforced Concrete Behaviour</span>
+                <span class="interest-tag">Structural Rehabilitation</span>
+                <span class="interest-tag">Earthquake Engineering</span>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <h2>Projects & Research Experience</h2>
+            
+            <div class="project">
+                <h3>Design of a Six-Storey Ward Block for KNUST Teaching Hospital</h3>
+                <p class="project-meta">Team Lead | Jan 2025 – Apr 2025 | Advisor: Dr. Russell O. Afrifa</p>
+                <p>Led a multidisciplinary team in designing a comprehensive six-storey hospital ward block, integrating structural, geotechnical, water resources, drainage, and highway engineering components.</p>
+                <ul>
+                    <li>Oversaw structural design and analysis using ETABS and Tekla Structures</li>
+                    <li>Coordinated foundation design, drainage layout, and water supply systems</li>
+                    <li>Ensured compliance with BS and EC codes for safety and serviceability</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <h3>Python-Based Model for Earthquake Ground Motion Analysis</h3>
+                <p class="project-meta">Jul 2025 – Sept 2025 | Advisor: Dr. Jack O. Banahene</p>
+                <p>Developed a computational model for simulating earthquake ground motion and evaluating structural response under varying damping ratios.</p>
+                <ul>
+                    <li>Implemented algorithms for time-history analysis and automated response spectra generation</li>
+                    <li>Applied structural dynamics concepts to validate results against standard design spectra</li>
+                    <li>Created visualization tools for displacement, velocity, and acceleration spectra</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <h3>Partial Replacement of Coarse Aggregate with Expanded Polystyrene Foam</h3>
+                <p class="project-meta">Team Lead | Dec 2024 – Aug 2025 | Advisor: Dr. Russell Afrifa</p>
+                <p>Investigated the structural and material performance of concrete incorporating EPS foam as a partial coarse aggregate replacement for lightweight construction applications.</p>
+                <ul>
+                    <li>Supervised mix design preparation and laboratory testing protocols</li>
+                    <li>Implemented DOE mix design methodology for experimental accuracy</li>
+                    <li>Analyzed compressive strength, density, and workability data</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <h3>Road Distress Identification Using Computer Vision</h3>
+                <p class="project-meta">November 2024</p>
+                <p>Created an AI model using Computer Vision Annotation Tool (CVAT) to detect road distresses and recommend solutions for infrastructure maintenance.</p>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog">
+            <h2>Blog & Insights</h2>
+            <p style="margin-bottom: 2rem;">Exploring topics in civil engineering, structural dynamics, and sustainable construction. Here I share my thoughts on research, industry trends, and technical innovations.</p>
+            
+            <div class="blog-posts">
+                <div class="blog-card">
+                    <h3>Understanding Response Spectra in Earthquake Engineering</h3>
+                    <p class="blog-meta">Coming Soon | Structural Dynamics</p>
+                    <p class="blog-excerpt">An exploration of how response spectra are used to characterize earthquake ground motions and their application in seismic design of structures. This post will discuss the development and interpretation of displacement, velocity, and acceleration spectra.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+
+                <div class="blog-card">
+                    <h3>Lightweight Concrete: The Future of Sustainable Construction</h3>
+                    <p class="blog-meta">Coming Soon | Material Science</p>
+                    <p class="blog-excerpt">Investigating the use of expanded polystyrene foam in concrete production. This article examines the benefits, challenges, and potential applications of lightweight concrete in modern construction projects.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+
+                <div class="blog-card">
+                    <h3>AI and Machine Learning in Civil Engineering</h3>
+                    <p class="blog-meta">Coming Soon | Technology</p>
+                    <p class="blog-excerpt">How artificial intelligence is transforming infrastructure inspection and maintenance. A look at computer vision applications for road distress detection and structural health monitoring.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+
+                <div class="blog-card">
+                    <h3>Structural Design Considerations for Hospital Buildings</h3>
+                    <p class="blog-meta">Coming Soon | Design</p>
+                    <p class="blog-excerpt">Lessons learned from designing a six-storey hospital ward block. This post covers unique structural challenges, code requirements, and best practices for healthcare facility design.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience">
+            <h2>Work Experience</h2>
+            
+            <div class="project">
+                <h3>Ghana Ports And Harbours Authority (GPHA), Tema</h3>
+                <p class="project-meta">Sept 2024 – Jan 2025</p>
+                <ul>
+                    <li>Conducted water holding test analysis on soils for road construction</li>
+                    <li>Performed compaction tests to obtain moisture-density relationships</li>
+                    <li>Prepared Bill of Quantities and Emergency Evacuation Plan</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <h3>KNUST Development Office</h3>
+                <p class="project-meta">Nov 2023 - Jan 2024</p>
+                <ul>
+                    <li>Collected and analyzed traffic data for KNUST campus</li>
+                    <li>Reviewed Bill of Quantities for commercial building</li>
+                    <li>Assisted in structural design of 4-floor Hostel Building</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <h3>Consar Ltd, Kumasi</h3>
+                <p class="project-meta">Sept 2023 – Oct 2023</p>
+                <ul>
+                    <li>Assisted in formwork preparation for ground floor slab construction</li>
+                    <li>Supported Bill of Quantities review for 3-storey building</li>
+                </ul>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Leadership Experience</h3>
+            <div class="project">
+                <h3>President, Civil Engineering Students' Association (CESA)</h3>
+                <p class="project-meta">KNUST | Oct 2023 - Oct 2024</p>
+                <ul>
+                    <li>Built website for the Association</li>
+                    <li>Renovated study area for members</li>
+                    <li>Organized career fair exposing members to civil engineering industry</li>
+                </ul>
+            </div>
+
+            <div class="project">
+                <h3>Deputy Chair, Legal Affairs, Unity Hall</h3>
+                <p class="project-meta">KNUST | Oct 2022 - Jun 2023</p>
+                <ul>
+                    <li>Managed all legal documentation for executives and hall administration</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Software & Design Tools</h4>
+                    <ul>
+                        <li>AutoCAD Design</li>
+                        <li>AutoCAD Civil 3D</li>
+                        <li>Tekla Structures</li>
+                        <li>Revit</li>
+                        <li>Prota Structures</li>
+                        <li>ETABS</li>
+                        <li>Python Programming</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Laboratory Skills</h4>
+                    <ul>
+                        <li>Mix Design Preparation</li>
+                        <li>Compressive Strength Testing</li>
+                        <li>Flexural Strength Testing</li>
+                        <li>Structural Failure Analysis</li>
+                        <li>Soil Compaction Testing</li>
+                        <li>Water Holding Test Analysis</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Analysis & Research</h4>
+                    <ul>
+                        <li>Data Analysis (Excel, MATLAB)</li>
+                        <li>Statistical Analysis</li>
+                        <li>Design of Experiments (DOE)</li>
+                        <li>Structural Dynamics</li>
+                        <li>Time-History Analysis</li>
+                        <li>Machine Learning (Coursera)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards -->
+        <section>
+            <h2>Achievements & Awards</h2>
+            <ul class="awards-list">
+                <li><strong>Outstanding Executive of the Year</strong> <span class="award-date">| August 2024 | CESA - KNUST</span></li>
+                <li><strong>Most Hardworking Executive of the Year</strong> <span class="award-date">| August 2024 | CESA - KNUST</span></li>
+                <li><strong>Most Popular Student</strong> <span class="award-date">| August 2023 | CESA - KNUST</span></li>
+                <li><strong>Overall Best Mathematics Student</strong> <span class="award-date">| June 2018 | Life Preparatory School</span></li>
+            </ul>
+
+            <h3 style="margin-top: 2rem;">Voluntary Activities</h3>
+            <ul class="awards-list">
+                <li><strong>Happiness In Every Child's Heart (HIECH)</strong> <span class="award-date">| November 2024</span><br>
+                Made donation of food and educational materials to Basic school at Nzulezu, Ghana</li>
+                <li><strong>Happiness In Every Child's Heart (HIECH)</strong> <span class="award-date">| November 2023</span><br>
+                Fed over 500 children on the Streets of Jamestown-Accra, Ghana</li>
+            </ul>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <p>I'm always interested in discussing civil engineering projects, research opportunities, and collaborations. Feel free to reach out!</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <a href="mailto:nyarkokingsley746@gmail.com">nyarkokingsley746@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <a href="tel:+233200259403">+233 200 259 403</a>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Kumasi, Ghana</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Nyarko Kingsley. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Built with dedication to excellence in civil engineering</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Handle profile picture upload
+        // Note: You can replace 'placeholder-profile.jpg' with your actual image file
+        // Or add an upload feature here
+    </script>
+</footer>
+</body>
+</html>
